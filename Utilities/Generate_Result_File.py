@@ -1,6 +1,6 @@
 import os
 
-def create_or_replace_file(file_path, lines):
+def create_or_replace_results(lines):
     """
     Deletes the file if it exists and creates a new one with the given lines.
 
@@ -12,10 +12,10 @@ def create_or_replace_file(file_path, lines):
         None
     """
     # Example usage
-    folder_path = os.path.join(os.getcwd(), "resources", "Actual_Output_Files")
+    folder_path = os.path.join(os.getcwd(), "results")
+    file_path = os.path.join(folder_path, "Match_MisMatch.txt")
     # Check if the file exists and delete it
-    file_path_new = file_path.replace("car_input", "actual_output")
-    file_path = os.path.join(folder_path, file_path_new)
+    file_path = os.path.join(folder_path, file_path)
     if os.path.exists(file_path):
         os.remove(file_path)
         print(f"Deleted existing file: {file_path}")

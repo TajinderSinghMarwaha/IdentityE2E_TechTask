@@ -11,6 +11,7 @@ from pages.HomePage import HomePage
 from Utilities import ExtractRegNumber
 from Utilities import CreateActualOutputFile
 from Utilities import Compare_Results
+from Utilities import Generate_Result_File
 
 
 @given(u'User launch the browser and Open the URL')
@@ -78,28 +79,35 @@ def validate_actual_output(context):
 
     # Folder path containing input files
     folder_path = os.path.join(os.getcwd(), "resources", "Test_Input_Files")
+    folder_result = os.path.join(os.getcwd(), "results")
     # Iterate through each file in the folder
     for filename in os.listdir(folder_path):
         file_path = os.path.join(folder_path, filename)
         all_reg_numbers = ExtractRegNumber.read_file(file_path, filename)
         try:
             for regNumb in all_reg_numbers:
+                regNumb = regNumb.replace(" ", "")
                 results = Compare_Results.compare_fetch_reg_compare(filename, regNumb)
                 if results == "Match":
-                    pass_row = filename + ":" + regNumb
+                    pass_row = filename + ":" + regNumb + "- MATCH"
                     pass_list.append(pass_row)
                 else:
-                    fail_row = filename + ":" + regNumb
-                    pass_list.append(fail_row)
-            if fail_list:
-                print("fail_list:", fail_list)
-                assert False, "Test is failed in validating the reg details"
-            else:
-                print("pass_list:", pass_list)
-                assert True, "Test validation pass."
+                    fail_row = filename + ":" + regNumb + "- MISMATCH"
+                    fail_list.append(fail_row)
         except:
             context.driver.close()
             assert False, "Test is failed in validating the reg details"
+    pass_list.extend(fail_list)
+    Generate_Result_File.create_or_replace_results(pass_list)
+    if fail_list:
+        print("fail_list:", fail_list)
+        print("pass_list:", pass_list)
+        assert False, "Test is failed in validating the reg details"
+    else:
+        print("pass_list:", pass_list)
+        assert True, "Test validation pass."
+
+
 
 @then(u'Close the browser')
 def step_impl(context):

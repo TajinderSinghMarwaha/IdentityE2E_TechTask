@@ -71,3 +71,19 @@ project/
 
 **To run the test with allure report**
 `behave -f allure_behave.formatter:AllureFormatter -o reports/ features/car_valuation.feature`
+
+### **Output of the tests**
+
+**Having MisMatches**
+car_input V4.txt:KT17DLX- MATCH
+car_input V4.txt:GU14FMO- MATCH
+car_input V4.txt:AD58 VNF- MISMATCH
+car_input V4.txt:GU14 OFM- MISMATCH
+car_input V5.txt:GU14 OFM- MISMATCH
+
+**Not having MisMatches**
+car_input V4.txt:AD58VNF- MATCH
+car_input V4.txt:GU14OFM- MATCH
+car_input V4.txt:KT17DLX- MATCH
+car_input V4.txt:GU14FMO- MATCH
+car_input V5.txt:GU14OFM- MATCH
