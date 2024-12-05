@@ -48,6 +48,8 @@ Page Object Model is followed in this framework
 
 **reports** directory contains the json files generated with allure reports
 
+**Utilities** folder contains the general non-selenium re-usable functions 
+
 project/
 ├── features/
 │   ├── car_valuation.feature  # Feature file
@@ -64,10 +66,8 @@ project/
 
 ### **Commands to run the tests**
 
-**To run the test without allure report** `behave features/car_valuation.feature`
+**To run the test without allure report** 
+`behave features/car_valuation.feature`
 
 **To run the test with allure report**
 `behave -f allure_behave.formatter:AllureFormatter -o reports/ features/car_valuation.feature`
-
-**To generate the html allure report from the json files inside reports folder**
-`allure serve reports/`
