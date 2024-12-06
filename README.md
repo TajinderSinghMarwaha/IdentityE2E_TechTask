@@ -50,6 +50,8 @@ Page Object Model is followed in this framework
 
 **Utilities** folder contains the general non-selenium re-usable functions 
 
+**results** folder contains the match/mismatch result file 
+
 project/
 ├── features/
 │   ├── car_valuation.feature  # Feature file
