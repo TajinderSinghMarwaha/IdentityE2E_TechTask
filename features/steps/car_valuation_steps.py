@@ -102,7 +102,7 @@ def validate_actual_output(context):
     if fail_list:
         print("fail_list:", fail_list)
         print("pass_list:", pass_list)
-        assert False, "Test is failed in validating the reg details"
+        assert False, f"Test is failed in validating the reg details. Failures are: {fail_list} "
     else:
         print("pass_list:", pass_list)
         assert True, "Test validation pass."

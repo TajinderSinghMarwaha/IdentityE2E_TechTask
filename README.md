@@ -98,7 +98,10 @@ car_input V4.txt:KT17DLX- MATCH
 car_input V4.txt:GU14FMO- MATCH
 car_input V5.txt:GU14OFM- MATCH
 
-**Allure Report Snippet**
+**Allure Report Snippet - Pass**
+
 ![img.png](img.png)
 
-![](C:\Users\Tajinder Singh\Downloads\AllureReport1.jpg)
+**Allure Report Snippet - Mismatches**
+
+![img_1.png](img_1.png)
