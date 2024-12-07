@@ -27,6 +27,10 @@ design patterns where appropriate.
 2. Config IDE with installed python version
 3. install behave
 4. Set behave.exe file location in path variable I found my behave.exe at below location C:\Users\userid\AppData\Roaming\Python\Python37\Scripts
+5. install allure
+   a) Download the latest version of Allure CLI from the official Allure releases page.
+   b) Extract the downloaded archive to a directory (e.g., C:\Program Files\Allure).
+   c) Add the bin directory to your system's PATH
 
 ## **Initial Setup**
 pip install -r requirements.txt
@@ -72,6 +76,10 @@ project/
 **To run the test with allure report**
 `behave -f allure_behave.formatter:AllureFormatter -o reports/ features/car_valuation.feature`
 
+**Serve a Report**
+`allure serve reports`
+Combines generate and open. Starts a temporary web server and opens the report in your browser.
+
 ### **Output of the tests**
 
 **Having MisMatches**
@@ -87,3 +95,8 @@ car_input V4.txt:GU14OFM- MATCH
 car_input V4.txt:KT17DLX- MATCH
 car_input V4.txt:GU14FMO- MATCH
 car_input V5.txt:GU14OFM- MATCH
+
+**Allure Report Snippet**
+![img.png](img.png)
+
+![](C:\Users\Tajinder Singh\Downloads\AllureReport1.jpg)
