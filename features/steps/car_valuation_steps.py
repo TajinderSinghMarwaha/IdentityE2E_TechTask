@@ -23,9 +23,11 @@ def launch_browser(context):
         options.add_argument("--disable-gpu")
         options.add_argument("--window-size=1920,1080")
 
+
         try:
             serviceChrome = Service(TestData.CHROME_EXECUTABLE_PATH)
             context.driver = webdriver.Chrome(service=serviceChrome, options=options)
+            context.driver.implicitly_wait(TestData.IMPLICIT_WAIT)
             context.driver.get(TestData.URL)
             context.homePage = HomePage(context.driver)
         except Exception as e:
